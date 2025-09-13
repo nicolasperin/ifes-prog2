@@ -30,7 +30,7 @@ int lerOpcao() {
 
 float lerValor(float lado){
 
-    scanf("f", &lado);
+    scanf("%f", &lado);
     return lado;
 
 }
