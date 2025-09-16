@@ -67,4 +67,5 @@ int main(){
     printarVetor(vetorImpares, qtd_impares);
     printf("\n");
 
+    return 0;
 }
