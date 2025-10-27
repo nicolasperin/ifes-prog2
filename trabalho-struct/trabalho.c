@@ -67,6 +67,12 @@ void lerPedido(Pedido *vetorPedidos, int *totalPedidos) {
     printf("\nNúmero do pedido: ");
     novoPedido.numeroDoPedido = lerNumeroInteiro();
 
+    if (pesquisarPedido(vetorPedidos, *totalPedidos, novoPedido.numeroDoPedido) != -1) {
+        printf("\nPedido já existe!");
+        return;
+    }
+
+
     printf("Nome do cliente: ");
     lerString(novoPedido.nomeCliente);
 
@@ -92,7 +98,7 @@ void lerPedido(Pedido *vetorPedidos, int *totalPedidos) {
     printf("\nPedido inserido com sucesso!");
 }
 
-void pesquisaPorNumeroEImprimir(Pedido * vetorPedidos, int  totalPedidos){
+void pesquisarPorNumeroEImprimir(Pedido * vetorPedidos, int  totalPedidos){
     
     printf("Informe o número do pedido: ");
     int numeroDoPedido = lerNumeroInteiro();
@@ -205,6 +211,7 @@ int menu() {
 	do {
 		printf("Escolha sua opção: ");
 		scanf(" %d", &op);
+        getchar();
 	} while(op < 0 || op > 7);
 	return op;
 }
