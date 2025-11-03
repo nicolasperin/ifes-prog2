@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <ctype.h> // pra usar o isdigit
 
 #define MAX_ALUNOS 100
 #define TAM_NOME 20
@@ -26,6 +27,7 @@ int ehNumero(const char *str) {
     return 1;
 }
 
+
 int main(void) {
     FILE *arquivo_input = abrirArquivo("../ex3_alunos.txt", "r");
     FILE *arquivo_leds = abrirArquivo("leds.txt", "w");
@@ -34,6 +36,7 @@ int main(void) {
 
     char palavra[TAM_NOME];
     int matricula = 0;
+
 
     while (fscanf(arquivo_input, "%s", palavra) == 1) {
 
