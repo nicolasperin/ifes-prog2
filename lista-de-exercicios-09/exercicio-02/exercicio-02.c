@@ -47,12 +47,20 @@ void calcularRelatorio(const ProducaoMensal producao[], const Motor motores[], R
 }
 
 void salvarRelatorio(FILE *arquivo, const RelatorioMensal relatorio[]) {
+    fprintf(arquivo, "CUSTO\tLUCRO\tRECEITA\n");
+    float custoTotal = 0, lucroTotal = 0, receitaTotal = 0;
     for (int i = 0; i < MESES; i++) {
-        fprintf(arquivo, "%.2f %.2f %.2f\n",
+        fprintf(arquivo, "%.2f\t%.2f\t%.2f\n",
                 relatorio[i].custoTotal,
                 relatorio[i].lucroTotal,
                 relatorio[i].receita);
+        custoTotal += relatorio[i].custoTotal;
+        lucroTotal += relatorio[i].lucroTotal;
+        receitaTotal += relatorio[i].receita;
     }
+    fprintf(arquivo,"\nCUSTO TOTAL ANUAL: %.2f\n", custoTotal);
+    fprintf(arquivo, "LUCRO TOTAL ANUAL: %.2f\n", lucroTotal);
+    fprintf(arquivo, "RECEITA TOTAL ANUAL: %.2f", receitaTotal);
 }
 
 
